@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { itemsProps } from "@/types";
 
 const API_KEY = import.meta.env.VITE_REACT_API_KEY;
 
@@ -14,7 +15,7 @@ const SearchedCuisine = () => {
         const getSearchRes = await axios.get(
           `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${userQuery}&number=9`
         );
-        const response = getSearchRes.data;
+        const response = getSearchRes.data.results;
         setSearchRes(response);
         console.log(response);
       } catch (error) {
@@ -27,7 +28,7 @@ const SearchedCuisine = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4 pt-10">
-      {searchRes?.results?.map((item) => (
+      {searchRes?.map((item: itemsProps) => (
         <div key={item.id} className="flex flex-col items-center space-y-4">
           <h3 className="font-semibold text-sm md:text-lg text-center">
             {item.title}

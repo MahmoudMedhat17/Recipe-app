@@ -27,7 +27,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <p className="text-center text-xs sm:text-lg">
+      <p className="text-center text-xs sm:text-lg py-4">
         Copyright © {yearlyDate} by{" "}
         <span className="text-orange-500 font-bold">Mahmoud Medhat</span>
       </p>

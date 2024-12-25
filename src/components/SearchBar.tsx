@@ -1,13 +1,13 @@
 import { FaSearch } from "react-icons/fa";
 import SearchedCuisine from "./SearchedCuisine";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [userQuery, setUserQuery] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = async (e) => {
+  const handleSearch = async (e: FormEvent) => {
     e.preventDefault();
     if (!userQuery.trim()) return;
 

@@ -1,4 +1,6 @@
-const CuisineInfo = ({ item }) => {
+import { itemsProps } from "@/types";
+
+const CuisineInfo = ({ item }: { item: itemsProps }) => {
   return (
     <div key={item.id} className="flex flex-col items-center space-y-4">
       <h3 className="font-semibold text-lg text-center">{item.title}</h3>
