@@ -33,7 +33,7 @@ const Veggie = () => {
           const veggiesData = await axios.get(
             `https://api.spoonacular.com/recipes/random?number=9&apiKey=${API_KEY}&include-tags=vegetarian`
           );
-          const response = await veggiesData.data;
+          const response = veggiesData.data;
           setVeggiesRecipes(response);
           // This line set the data from the API and set it to the localStorage
           localStorage.setItem("veggies", JSON.stringify(response));

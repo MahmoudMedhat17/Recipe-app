@@ -33,7 +33,7 @@ const Popular = () => {
           const popularData = await axios.get(
             `https://api.spoonacular.com/recipes/random?number=9&apiKey=${API_KEY}`
           );
-          const response = await popularData.data;
+          const response = popularData.data;
           setPopularRecipes(response);
           // This line set the data from the API and set it to the localStorage
           localStorage.setItem("popular", JSON.stringify(response));
