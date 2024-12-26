@@ -9,7 +9,9 @@ const Footer = () => {
     <section className="pt-10 px-10 md:px-5 lg:px-2">
       <div className="flex justify-between items-center py-10">
         <div className="w-1/2">
-          <img src="/logo.jpg" className="w-24 h-24" />
+          <Link to="/">
+            <img src="/logo.jpg" className="w-20 md:w-24 h-20 md:h-24" />
+          </Link>
           <p className="font-medium text-xs sm:text-sm">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde esse
             praesentium hic libero eveniet odio tenetur architecto natus.

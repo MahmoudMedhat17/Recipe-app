@@ -4,14 +4,9 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Categories from "@/components/Categories";
 import SearchBar from "@/components/SearchBar";
+import { itemsProps } from "@/types";
 
 const API_KEY = import.meta.env.VITE_REACT_API_KEY;
-
-type itemProps = {
-  id: number;
-  image: string;
-  title: string;
-};
 
 const Cuisines = () => {
   const [cuisinesState, setCuisinesState] = useState([]);
@@ -36,7 +31,7 @@ const Cuisines = () => {
     }
     console.log(cuisineParams);
     console.log(cuisinesState);
-  }, [cuisineParams, cuisinesState]);
+  }, [cuisineParams]);
 
   return (
     <div className="px-10 md:px-5 lg:px-2">
@@ -47,9 +42,16 @@ const Cuisines = () => {
       </h2>
       <Link to="">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-          {cuisinesState.results?.map((item: itemProps) => (
-            <div key={item.id} className="py-10">
-              <CuisineInfo item={item} />
+          {cuisinesState.results?.map((item: itemsProps) => (
+            <div
+              key={item.id}
+              className="py-10 relative cursor-pointer hover:scale-105 duration-300"
+            >
+              <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                {item.title}
+              </h3>
+              <div className="absolute bg-black/20 w-full h-full"></div>
+              <img src={item.image} className="w-80 shadow-lg" />
             </div>
           ))}
         </div>

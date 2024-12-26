@@ -6,17 +6,13 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { itemsProps } from "@/types";
+import { Link } from "react-router-dom";
 
 const API_KEY = import.meta.env.VITE_REACT_API_KEY;
 
-interface Ipopular {
-  id: number;
-  title: string;
-  image: string;
-}
-
 const Popular = () => {
-  const [popularRecipes, setPopularRecipes] = useState<Ipopular[]>([]);
+  const [popularRecipes, setPopularRecipes] = useState<itemsProps[]>([]);
 
   useEffect(() => {
     const getPopular = async () => {
@@ -62,19 +58,21 @@ const Popular = () => {
         ]}
       >
         <CarouselContent className="gap-10">
-          {popularRecipes?.recipes?.map((item) => (
+          {popularRecipes?.recipes?.map((item: itemsProps) => (
             <CarouselItem key={item.id}>
-              <div className="relative cursor-pointer hover:scale-105 duration-300">
-                <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  {item.title}
-                </h3>
-                <div className="absolute bg-black/20 w-full h-full"></div>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-80 shadow-lg"
-                />
-              </div>
+              <Link to={`/cuisine/${item.id}`}>
+                <div className="relative cursor-pointer hover:scale-105 duration-300">
+                  <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    {item.title}
+                  </h3>
+                  <div className="absolute bg-black/20 w-full h-full"></div>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-80 shadow-lg"
+                  />
+                </div>
+              </Link>
             </CarouselItem>
           ))}
         </CarouselContent>
