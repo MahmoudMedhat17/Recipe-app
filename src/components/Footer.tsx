@@ -1,5 +1,6 @@
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ScrollToTop } from "@/lib/ScrollToTop";
 
 const Footer = () => {
   const date = new Date();
@@ -9,10 +10,10 @@ const Footer = () => {
     <section className="pt-10 px-10 md:px-5 lg:px-2">
       <div className="flex justify-between items-center py-10">
         <div className="w-1/2 space-y-8">
-          <Link to="/">
+          <Link to="/" onClick={ScrollToTop}>
             <img
               src="/logo.png"
-              className="w-20 md:w-24 h-20 md:h-24 bg-white rounded-md"
+              className="w-14 sm:w-20 md:w-24 h-14 sm:h-20 md:h-24 bg-white rounded-md"
             />
           </Link>
           <p className="font-medium text-xs sm:text-sm">

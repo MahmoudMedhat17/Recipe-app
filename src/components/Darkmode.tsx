@@ -20,8 +20,8 @@ const Darkmode = () => {
 
     // We set to the localStorage whatever in the theme state using the "theme" key we intialized when get the data in the localStorage
     localStorage.setItem("theme", theme);
-  // Render whenever theme state changes
-  }, [theme]); 
+    // Render whenever theme state changes
+  }, [theme]);
 
   // Fucntion to toggle the theme state between "dark" and "light" using the setTheme state
   const toggleTheme = () => {
