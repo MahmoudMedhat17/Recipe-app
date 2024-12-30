@@ -32,15 +32,13 @@ const SearchedCuisine = () => {
         <Link to={`/cuisine/${item.id}`}>
           <div
             key={item.id}
-            className="relative flex flex-col items-center space-y-4 hover:scale-105 duration-300 w-80 sm:w-60 md:w-80"
+            className="cursor-pointer relative flex flex-col items-center hover:scale-105 duration-300 w-80 sm:w-60 md:w-80"
           >
             <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               {item.title}
             </h3>
-            <img
-              src={item.image}
-              className="cursor-pointer w-80 sm:w-60 md:w-80"
-            />
+            <div className="absolute bg-black/30 w-full h-full"></div>
+            <img src={item.image} className="w-80 sm:w-60 md:w-80 shadow-lg" />
           </div>
         </Link>
       ))}
