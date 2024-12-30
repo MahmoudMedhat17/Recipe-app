@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
+import Darkmode from "./Darkmode";
 
 const Navbar = () => {
   return (
     <header className="px-10 md:px-5 lg:px-2 py-4 md:py-10">
-      <nav className="flex">
+      <nav className="flex justify-between items-center">
         <Link to="/">
-          <img src="logo.jpg" className="w-20 md:w-24 h-20 md:h-24" />
+          <img
+            src="logo.png"
+            className="w-20 md:w-24 h-20 md:h-24 bg-white rounded-md"
+          />
         </Link>
+        <Darkmode />
       </nav>
     </header>
   );

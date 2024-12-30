@@ -6,17 +6,13 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { Link } from "react-router-dom";
+import { itemsProps } from "@/types";
 
 const API_KEY = import.meta.env.VITE_REACT_API_KEY;
 
-interface Iveggies {
-  id: number;
-  title: string;
-  image: string;
-}
-
 const Veggie = () => {
-  const [veggiesRecipes, setVeggiesRecipes] = useState<Iveggies[]>([]);
+  const [veggiesRecipes, setVeggiesRecipes] = useState<itemsProps[]>([]);
 
   useEffect(() => {
     const getVeggies = async () => {
@@ -33,7 +29,7 @@ const Veggie = () => {
           const veggiesData = await axios.get(
             `https://api.spoonacular.com/recipes/random?number=9&apiKey=${API_KEY}&include-tags=vegetarian`
           );
-          const response = veggiesData.data;
+          const response = veggiesData.data?.recipes;
           setVeggiesRecipes(response);
           // This line set the data from the API and set it to the localStorage
           localStorage.setItem("veggies", JSON.stringify(response));
@@ -62,21 +58,23 @@ const Veggie = () => {
         ]}
       >
         <CarouselContent className="gap-10">
-          {veggiesRecipes?.recipes?.map((item) => (
-            <CarouselItem key={item.id}>
-              <div className="relative cursor-pointer hover:scale-105 duration-300">
-                <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  {item.title}
-                </h3>
-                <div className="absolute bg-black/20 w-full h-full"></div>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-80 shadow-lg"
-                />
-              </div>
-            </CarouselItem>
-          ))}
+          {Array.isArray(veggiesRecipes) &&
+            veggiesRecipes?.map((item: itemsProps) => (
+              <CarouselItem key={item.id}>
+                <Link to={`/cuisine/${item.id}`}>
+                  <div className="relative cursor-pointer hover:scale-105 duration-300 w-80 sm:w-60 md:w-80">
+                    <h3 className="absolute w-full text-center text-sm z-20 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      {item.title}
+                    </h3>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-80 sm:w-60 md:w-80 shadow-lg"
+                    />
+                  </div>
+                </Link>
+              </CarouselItem>
+            ))}
         </CarouselContent>
       </Carousel>
     </div>

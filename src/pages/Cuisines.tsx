@@ -1,4 +1,3 @@
-import CuisineInfo from "@/components/CuisineInfo";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -17,7 +16,7 @@ const Cuisines = () => {
       const cuisineData = await axios.get(
         `https://api.spoonacular.com/recipes/complexSearch?cuisine=${name}&apiKey=${API_KEY}`
       );
-      const response = await cuisineData.data;
+      const response = await cuisineData.data.results;
       setCuisinesState(response);
       console.log(response);
     } catch (error) {
@@ -40,22 +39,24 @@ const Cuisines = () => {
       <h2 className="text-xl font-bold py-10">
         {cuisineParams?.cuisineType} Cuisine
       </h2>
-      <Link to="">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-          {cuisinesState.results?.map((item: itemsProps) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 place-items-center">
+        {cuisinesState?.map((item: itemsProps) => (
+          <Link to={`/cuisine/${item.id}`}>
             <div
               key={item.id}
-              className="py-10 relative cursor-pointer hover:scale-105 duration-300"
+              className="py-10 relative cursor-pointer hover:scale-105 duration-300 w-80 sm:w-60 md:w-80"
             >
               <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 {item.title}
               </h3>
-              <div className="absolute bg-black/20 w-full h-full"></div>
-              <img src={item.image} className="w-80 shadow-lg" />
+              <img
+                src={item.image}
+                className="w-80 sm:w-60 md:w-80 shadow-lg"
+              />
             </div>
-          ))}
-        </div>
-      </Link>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

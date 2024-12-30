@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { itemsProps } from "@/types";
 
 const API_KEY = import.meta.env.VITE_REACT_API_KEY;
@@ -27,14 +27,22 @@ const SearchedCuisine = () => {
   }, [userQuery]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4 pt-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 pt-10 place-items-center">
       {searchRes?.map((item: itemsProps) => (
-        <div key={item.id} className="flex flex-col items-center space-y-4">
-          <h3 className="font-semibold text-sm md:text-lg text-center">
-            {item.title}
-          </h3>
-          <img src={item.image} className="rounded-lg cursor-pointer" />
-        </div>
+        <Link to={`/cuisine/${item.id}`}>
+          <div
+            key={item.id}
+            className="relative flex flex-col items-center space-y-4 hover:scale-105 duration-300 w-80 sm:w-60 md:w-80"
+          >
+            <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              {item.title}
+            </h3>
+            <img
+              src={item.image}
+              className="cursor-pointer w-80 sm:w-60 md:w-80"
+            />
+          </div>
+        </Link>
       ))}
     </div>
   );

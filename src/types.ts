@@ -3,3 +3,13 @@ export interface itemsProps {
     title: string;
     image: string;
 };
+
+
+export interface ingridientsProps {
+    id: number;
+    original: string;
+    image: string;
+    readyInMinutes: number;
+    servings: number;
+    summary: string;
+};

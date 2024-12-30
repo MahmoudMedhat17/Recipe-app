@@ -8,13 +8,18 @@ const Footer = () => {
   return (
     <section className="pt-10 px-10 md:px-5 lg:px-2">
       <div className="flex justify-between items-center py-10">
-        <div className="w-1/2">
+        <div className="w-1/2 space-y-8">
           <Link to="/">
-            <img src="/logo.jpg" className="w-20 md:w-24 h-20 md:h-24" />
+            <img
+              src="/logo.png"
+              className="w-20 md:w-24 h-20 md:h-24 bg-white rounded-md"
+            />
           </Link>
           <p className="font-medium text-xs sm:text-sm">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde esse
-            praesentium hic libero eveniet odio tenetur architecto natus.
+            Delicious is a user-friendly platform designed to help users
+            discover culinary recipes. It allows users to browse a vast
+            collection of recipes by cuisine, dietary preferences, ingredients,
+            and cooking time
           </p>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-4">

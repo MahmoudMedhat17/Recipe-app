@@ -15,7 +15,7 @@ const Popular = () => {
   const [popularRecipes, setPopularRecipes] = useState<itemsProps[]>([]);
 
   useEffect(() => {
-    const getPopular = async () => {
+    const getPopularRecipes = async () => {
       try {
         // Get Stored data in LocalStorage
         const checkLs = localStorage.getItem("popular");
@@ -29,7 +29,7 @@ const Popular = () => {
           const popularData = await axios.get(
             `https://api.spoonacular.com/recipes/random?number=9&apiKey=${API_KEY}`
           );
-          const response = popularData.data;
+          const response = popularData.data?.recipes;
           setPopularRecipes(response);
           // This line set the data from the API and set it to the localStorage
           localStorage.setItem("popular", JSON.stringify(response));
@@ -40,7 +40,7 @@ const Popular = () => {
       }
     };
 
-    getPopular();
+    getPopularRecipes();
   }, []);
 
   return (
@@ -58,23 +58,23 @@ const Popular = () => {
         ]}
       >
         <CarouselContent className="gap-10">
-          {popularRecipes?.recipes?.map((item: itemsProps) => (
-            <CarouselItem key={item.id}>
-              <Link to={`/cuisine/${item.id}`}>
-                <div className="relative cursor-pointer hover:scale-105 duration-300">
-                  <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    {item.title}
-                  </h3>
-                  <div className="absolute bg-black/20 w-full h-full"></div>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-80 shadow-lg"
-                  />
-                </div>
-              </Link>
-            </CarouselItem>
-          ))}
+          {Array.isArray(popularRecipes) &&
+            popularRecipes?.map((item: itemsProps) => (
+              <CarouselItem key={item.id}>
+                <Link to={`/cuisine/${item.id}`}>
+                  <div className="relative cursor-pointer hover:scale-105 duration-300 w-80 sm:w-60 md:w-80">
+                    <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      {item.title}
+                    </h3>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-80 sm:w-60 md:w-80 shadow-lg h-full"
+                    />
+                  </div>
+                </Link>
+              </CarouselItem>
+            ))}
         </CarouselContent>
       </Carousel>
     </div>

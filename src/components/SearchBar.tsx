@@ -17,10 +17,10 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={handleSearch}>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center pt-10">
         <button
           onClick={handleSearch}
-          className="bg-gray-900/80 p-3 rounded-l-lg"
+          className="bg-gray-900/80 dark:bg-slate-600 p-3 rounded-l-lg"
           type="submit"
         >
           <FaSearch className="text-slate-300" />
@@ -32,7 +32,7 @@ const SearchBar = () => {
           onChange={(e) => {
             setUserQuery(e.target.value);
           }}
-          className="focus:outline-none w-1/2 bg-gray-900/80 p-2 rounded-r-lg placeholder:text-slate-300 text-slate-300"
+          className="dark:bg-slate-600 focus:outline-none w-1/2 bg-gray-900/80 p-2 rounded-r-lg placeholder:text-slate-300 text-slate-300"
         />
       </div>
       <SearchedCuisine />
