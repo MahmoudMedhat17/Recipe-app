@@ -66,6 +66,7 @@ const Popular = () => {
                     <h3 className="absolute w-full text-center text-sm z-10 text-white font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                       {item.title}
                     </h3>
+                    <div className="absolute bg-black/70"></div>
                     <img
                       src={item.image}
                       alt={item.title}
