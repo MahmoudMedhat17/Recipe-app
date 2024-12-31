@@ -9,7 +9,7 @@ const Categories = () => {
       <NavLink
         to="/cuisines/Italian"
         className={({ isActive }: { isActive: boolean }) =>
-          `flex flex-col items-center justify-center gap-2 cursor-pointer w-14 sm:w-20 h-14 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
+          `flex flex-col items-center justify-center gap-2 cursor-pointer w-16 sm:w-20 h-16 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
             isActive ? "bg-orange-500" : "bg-gray-700/80"
           }`
         }
@@ -20,7 +20,7 @@ const Categories = () => {
       <NavLink
         to="/cuisines/American"
         className={({ isActive }) =>
-          `flex flex-col items-center justify-center gap-2 cursor-pointer w-14 sm:w-20 h-14 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
+          `flex flex-col items-center justify-center gap-2 cursor-pointer w-16 sm:w-20 h-16 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
             isActive ? "bg-orange-500" : "bg-gray-700/80"
           }`
         }
@@ -31,7 +31,7 @@ const Categories = () => {
       <NavLink
         to="/cuisines/Korean"
         className={({ isActive }: { isActive: boolean }) =>
-          `flex flex-col items-center justify-center gap-2 cursor-pointer bg-gray-700/80 w-14 sm:w-20 h-14 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
+          `flex flex-col items-center justify-center gap-2 cursor-pointer bg-gray-700/80 w-16 sm:w-20 h-16 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
             isActive ? "bg-orange-500" : "bg-gray-700/80"
           }`
         }
@@ -42,7 +42,7 @@ const Categories = () => {
       <NavLink
         to="/cuisines/Japanese"
         className={({ isActive }: { isActive: boolean }) =>
-          `flex flex-col items-center justify-center gap-2 cursor-pointer bg-gray-700/80 w-14 sm:w-20 h-14 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
+          `flex flex-col items-center justify-center gap-2 cursor-pointer bg-gray-700/80 w-16 sm:w-20 h-16 sm:h-20 rounded-full hover:bg-orange-500 hover:duration-200 ${
             isActive ? "bg-orange-500" : "bg-gray-700/80"
           }`
         }

@@ -10,12 +10,12 @@ const Footer = () => {
     <section className="pt-10 px-10 md:px-5 lg:px-2">
       <div className="flex justify-between items-center py-10">
         <div className="w-1/2 space-y-8">
-          <Link to="/" onClick={ScrollToTop}>
+          <div onClick={ScrollToTop}>
             <img
               src="/logo.png"
-              className="w-14 sm:w-20 md:w-24 h-14 sm:h-20 md:h-24 bg-white rounded-md"
+              className="w-14 sm:w-20 md:w-24 h-14 sm:h-20 md:h-24 bg-white rounded-md cursor-pointer"
             />
-          </Link>
+          </div>
           <p className="font-medium text-xs sm:text-sm">
             Delicious is a user-friendly platform designed to help users
             discover culinary recipes. It allows users to browse a vast
