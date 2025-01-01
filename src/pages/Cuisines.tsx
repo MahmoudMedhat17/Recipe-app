@@ -39,7 +39,7 @@ const Cuisines = () => {
     <div className="px-10 md:px-5 xl:px-0">
       <SearchBar />
       <Categories />
-      <h2 className="px-4 text-xl font-bold py-10">
+      <h2 className="px-4 text-xl font-bold mt-10">
         {cuisineParams?.cuisineType} Cuisine
       </h2>
       {error ? (

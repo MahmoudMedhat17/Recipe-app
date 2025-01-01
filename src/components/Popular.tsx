@@ -48,7 +48,7 @@ const Popular = () => {
 
   return (
     <div className="px-10 md:px-5 xl:px-0 space-y-4">
-      <h3 className="font-bold text-lg">Popular Picks</h3>
+      <h3 className="font-bold text-xl mt-10">Popular Picks</h3>
       {error ? (
         <>
           <h3 className="text-center font-semibold text-xl">
