@@ -44,7 +44,7 @@ const Cuisines = () => {
       </h2>
       {error ? (
         <>
-          <h3 className="text-center font-semibold text-xl">
+          <h3 className="text-center font-semibold text-xl mt-10">
             Sorry the recipe is not available.
           </h3>
         </>
