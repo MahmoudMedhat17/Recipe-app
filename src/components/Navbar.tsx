@@ -8,7 +8,7 @@ const Navbar = () => {
         <Link to="/">
           <img
             src="logo.png"
-            className="w-14 sm:w-20 md:w-24 h-14 sm:h-20 md:h-24 bg-white rounded-md"
+            className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-white rounded-md"
           />
         </Link>
         <Darkmode />
@@ -18,4 +18,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-        
